@@ -4,4 +4,5 @@ Color perception is an essential aspect of visual experiments, including those o
 In addition to the ΔE and relative luminance values between each color, the HTML data table produced at the end of this code includes a swatch of each color, the corresponding Hex code for each color, and their values in the HSL, HSV, RGB, and CMYK color spaces. 
 
 Created by: Sydni M. Nadler (2025)
+
 DOI: 10.5281/zenodo.15700163.
