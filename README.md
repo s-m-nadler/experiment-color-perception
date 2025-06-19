@@ -5,4 +5,6 @@ In addition to the ΔE and relative luminance values between each color, the HTM
 
 Created by: Sydni M. Nadler (2025)
 
+Name: Experiment Stimulus Color Perception Calculator
+
 DOI: 10.5281/zenodo.15700163.
