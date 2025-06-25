@@ -7,7 +7,7 @@
 
 #Install necessary packages if not already installed
 
-install.packages(c("colorspace", "farver", "dplyr", "tibble", "DT"))
+#install.packages(c("colorspace", "farver", "dplyr", "tibble", "DT"))
 
 
 #Load packages
@@ -99,8 +99,8 @@ rgb_to_cmyk <- function(r, g, b) {
 
 if (input_mode == "HSL") {                  # Define HSL Inputs
   colors_input <- list(                     # Change the below hue, saturation, and lightness values according to your intended colors
-    color1 = c(h = 50, s = 100, l = 50),    
-    color2 = c(h = 25, s = 100, l = 50),
+    color1 = c(h = 180, s = 100, l = 50),    
+    color2 = c(h = 45, s = 100, l = 80),
     color3 = c(h = 0, s = 0, l = 0)        # color3 is set as my intended background color
   )
   
@@ -154,7 +154,7 @@ color_data <- color_data_raw %>%
       rgb(rgb[1], rgb[2], rgb[3], maxColorValue = 1)
     })),
     HSV = list(round(rgb2hsv(matrix(c(R, G, B), nrow = 3), maxColorValue = 255)[, 1], 4)),
-    Luminance = round(relative_luminance(unlist(RGB_norm)), 4),
+    Luminance = sapply(RGB_norm, function(rgb) round(relative_luminance(rgb), 4)),
     Swatch = paste0('<div style="width: 50px; height: 20px; background-color:', Hex, ';"></div>')
   )
 
@@ -202,7 +202,7 @@ color_data <- color_data %>%
 # Renders HTML datatable
 datatable(
   color_data %>%
-    select(Color, Swatch, Hex, Luminance, starts_with("ΔE"), HSL, HSV, RGB, CMYK,), # List selections according to desired column order
+    select(Color, Swatch, Hex, Luminance, starts_with("ΔE"), HSL, HSV, RGB, CMYK), # List selections according to desired column order
   escape = FALSE,
   options = list(pageLength = 10),
   rownames = FALSE
